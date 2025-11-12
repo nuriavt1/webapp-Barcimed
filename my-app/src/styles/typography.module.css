@@ -1,0 +1,93 @@
+.headline1 {
+  font-family: 'Pirata One';
+  font-size: 82px;
+  margin: 0px;
+}
+
+.headline2 {
+  font-family: 'Pirata One';
+  font-size: 48px;
+   margin: 0px;
+}
+
+.headline3 {
+  font-family: 'Pirata One';
+  font-size: 32px;
+   margin: 0px;
+}
+
+.headline4 {
+  font-family: 'Pirata One';
+  font-size: 28px;
+   margin: 0px;
+}
+
+.title1 {
+  font-family: 'Futura Bk BT';
+  font-size: 29px;
+  margin: 0px;
+  
+}
+
+.title1Bold {
+  font-family: 'Futura Md BT';
+  font-size: 29px;
+  font-weight: Medium;
+  margin: 0px;
+}
+
+.title2 {
+  font-family: 'Futura Bk BT';
+  font-size: 20px;
+  font-weight: Book;
+  margin: 0px;
+}
+
+.title2Bold {
+  font-family: 'Futura Md BT';
+  font-size: 20px;
+  font-weight: Medium;
+  margin: 0px;
+}
+
+.bodyLarge {
+  font-family: 'Futura Bk BT';
+  font-size: 19px;
+  font-weight: Book;
+  margin: 0px;
+}
+
+.bodyLargeBold {
+  font-family: 'Futura Md BT';
+  font-size: 19px;
+  font-weight: Medium;
+  margin: 0px;
+}
+
+.bodyMedium {
+  font-family: 'Futura Bk BT';
+  font-size: 17px;
+  font-weight: Book;
+  margin: 0px;
+}
+
+.bodyMediumBold {
+  font-family: 'Futura Md BT';
+  font-size: 17px;
+  font-weight: Medium;
+  margin: 0px;
+}
+
+.bodySmall {
+  font-family: 'Futura Bk BT';
+  font-size: 14px;
+  font-weight: Book;
+  margin: 0px;
+}
+
+.bodySmallBold {
+  font-family: 'Futura Md BT';
+  font-size: 14px;
+  font-weight: Medium;
+  margin: 0px;
+}

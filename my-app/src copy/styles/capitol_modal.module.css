@@ -1,0 +1,23 @@
+.overlay {
+  position: absolute;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  background: rgba(0, 0, 0, 0.45); /* oscurece */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); /* Safari */
+  display: grid;
+  place-items: center;
+  z-index: 1000; /* encima del resto */
+  color: #fff;
+}
+
+.modal {
+    position: absolute;
+  background: #fff;
+  border-radius: 12px;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 600px;
+  padding: 24px;
+  overflow: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}

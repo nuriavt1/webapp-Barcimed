@@ -1,0 +1,143 @@
+import { useRef, useState } from "react";
+import InputLletra from "../inputs/inputLletra";
+import styles from "../../styles/nivells.module.css";
+import { useNivell } from "../../context/nivellContext";
+import Text_Type from "../text_type";
+import Button from "../button";
+import Correct_Modal from "../modals/correct_modal";
+import { useNavigate } from "react-router-dom";
+import Missatge_Modal from "../modals/missatge_modal";
+import Targetes_Modal from "../modals/targetes_modal";
+
+export default function Nivell1({ resolta, marcaResolta }) {
+  const navigate = useNavigate();
+  const paraules = [
+    ["C", "A", "R", "R", "E", "R"],
+    ["D", "E"],
+    ["L", "A"],
+    ["C", "I", "U", "T", "A", "T"]
+  ];
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+const [isTargetesOpen, setIsTargetesOpen] = useState(false);
+const [isMissatgeOpen, setIsMissatgeOpen] = useState(false);
+
+  const correcta = paraules.flat();
+
+  const { desbloquejarT, desbloquejarV, esTargetaDesbloquejada, pujarNivell } = useNivell();
+
+  const totalLletres = correcta.length;
+  const [letters, setLetters] = useState(Array(totalLletres).fill(""));
+  const [letterStates, setLetterStates] = useState(Array(totalLletres).fill(null));
+  const inputsRef = useRef([]);
+  const [respostaCorrecta, setRespostaCorrecta] = useState(false);
+
+  const handleChange = (index, char) => {
+    const newLetters = [...letters];
+    newLetters[index] = char.toUpperCase();
+    setLetters(newLetters);
+  };
+
+  const focusInput = (index) => {
+    if (inputsRef.current[index]) {
+      inputsRef.current[index].focus();
+    }
+  };
+
+  const handleBackspace = (index) => {
+    if (index >= 0) focusInput(index - 1);
+  };
+
+  const handleNext = (index) => {
+    if (index < totalLletres) focusInput(index);
+  };
+
+  const comprovarResposta = () => {
+    const novaComparacio = letters.map(
+      (lletra, i) => lletra.toUpperCase() === correcta[i]
+    );
+    setLetterStates(novaComparacio);
+
+    const esCorrecte = novaComparacio.every(Boolean);
+
+    if (esCorrecte) {
+      desbloquejarV(2);
+      marcaResolta();
+      setRespostaCorrecta(true);
+      setIsModalOpen(true); // Obrim el modal aquí
+      
+    } else {
+      setRespostaCorrecta(false);
+      
+    }
+  };
+
+  const tancarModal = () => {
+    setIsModalOpen(false);
+    setIsTargetesOpen(true);
+    pujarNivell();
+    navigate("/main"); // o la ruta que vulguis després
+  };
+
+  const obrirMissatge = () => {
+setIsTargetesOpen(false);
+setIsMissatgeOpen(true);
+};
+
+const tancarMissatge = () => {
+setIsMissatgeOpen(false);
+pujarNivell();
+navigate("/map");
+};
+
+  return (
+    <div>
+      <Text_Type variant="h2">Nivell 1</Text_Type>
+
+      <div className={styles.inputs}>
+        {paraules.map((word, wordIndex) => {
+          const offset = paraules.slice(0, wordIndex).flat().length;
+          return (
+            <div key={wordIndex} style={{ display: "flex", gap: "4px" }}>
+              {word.map((_, i) => {
+                const globalIndex = offset + i;
+                return (
+                  <InputLletra
+                    key={globalIndex}
+                    value={letters[globalIndex]}
+                    index={globalIndex}
+                    onChange={handleChange}
+                    onBackspace={handleBackspace}
+                    onNext={handleNext}
+                    ref={(el) => (inputsRef.current[globalIndex] = el)}
+                    correct={letterStates[globalIndex]}
+                  />
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+
+      <Button onClick={comprovarResposta}>ENVIAR</Button>
+
+      {respostaCorrecta && (
+        <Text_Type variant="success"> Correcte! Has resolt l’endevinalla.</Text_Type>
+      )}
+
+      {isModalOpen && <Correct_Modal onClose={tancarModal} />}
+{isTargetesOpen && (
+<Targetes_Modal
+onClose={() => setIsTargetesOpen(false)}
+onContinue={obrirMissatge}
+/>
+)}
+{isMissatgeOpen && (
+<Missatge_Modal
+onClose={tancarMissatge}
+onContinue={tancarMissatge}
+/>
+)}
+    </div>
+  );
+}

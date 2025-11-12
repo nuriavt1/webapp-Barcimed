@@ -1,0 +1,62 @@
+[
+    {
+        "nivell": 1,
+        "title": "A la casa dels cent consellers",
+        "pregunta": "Observa bé els carrers que porten a la plaça. Un d’ells era per on els cent consellers entraven a la Casa de la Ciutat. Si camines per aquell carrer, veuràs la porta d’accés. Ja saps quin és?",
+        "resposta": "CARRERDELACIUTAT",
+         "resposta_correcta": [
+      ["C", "A", "R", "R", "E", "R"],
+      ["D", "E"],
+      ["L", "A"],
+      ["C", "I", "U", "T", "A", "T"]
+    ],
+        "targetesDesbloquejades": [
+            20
+        ],
+        "ubicació": "Plaça Sant Jaume",
+        "resolta": false
+    },
+    {
+        "nivell": 2,
+        "title": "La Plaça del Pi i la seva església",
+        "pregunta": "Des de la plaça del Pi, observa bé la façana de l’església de Santa Maria del Pi. Entre les formes de pedra, hi ha pinyes amagades. Si mires amb atenció, les sabràs trobar. Quantes n’hi veus?",
+        "resposta": "2",
+         "resposta_correcta": [
+      ["2"]
+    ],
+        "targetesDesbloquejades": [
+            24
+        ],
+        "ubicació": "Plaça del Pi",
+         "resolta": false
+    },
+        {
+        "nivell": 3,
+        "title": "La plaça que abans va ser mercat",
+        "pregunta": "L'aliment per excel·lència de la Barcelona Medieval. 4 lletres.",
+        "resposta": "BLAT",
+         "resposta_correcta": [
+      ["B", "L", "A", "T"]
+    ],
+        "targetesDesbloquejades": [
+            10
+            
+        ],
+        "ubicació": "Plaça de L'Àngel",
+         "resolta": false
+    },
+            {
+        "nivell": 4,
+        "title": "El encabit barri dels jueus",
+        "pregunta": "En un d’aquests carrers estava la Sinagoga Major. Observa, és molt fàcil, just en l’entrada veuràs el que queda de la mezuza. Sabries dir quin es el numero de la porta en la actualitat.",
+        "resposta": "5",
+         "resposta_correcta": [
+      ["5"]
+    ],
+        "targetesDesbloquejades": [
+            25
+        ],
+        "ubicació": "Carrer de Salomó Ben Adret",
+         "resolta": false
+    }
+]
