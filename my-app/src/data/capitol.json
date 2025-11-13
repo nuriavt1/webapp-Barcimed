@@ -1,0 +1,30 @@
+[
+    {
+        "titol": "EL CAVALLER",
+        "numero": 1,
+        "missatge": "Começa la jornada. El Consell de Cent t’espera...pero hauràs de trobar el camí per tu sol.",
+        "imatgePetita": "cap_cavaller.svg",
+        "imatgeGran": "CAP_I.svg"
+    },
+    {
+        "titol": "LA MONJA",
+        "numero": 2,
+        "missatge": "Começa la jornada. El Consell de Cent t’espera...pero hauràs de trobar el camí per tu sol.",
+        "imatgePetita": "cap_monja.svg",
+        "imatgeGran": "CAP_II.svg"
+    },
+    {
+        "titol": "EL COMERCIANT",
+        "numero": 3,
+        "missatge": "Começa la jornada. El Consell de Cent t’espera...pero hauràs de trobar el camí per tu sol.",
+        "imatgePetita": "cap_comerciant.svg",
+        "imatgeGran": "CAP_III.svg"
+    },
+    {
+        "titol": "ELS JUEUS",
+        "numero": 4,
+        "missatge": "Começa la jornada. El Consell de Cent t’espera...pero hauràs de trobar el camí per tu sol.",
+        "imatgePetita": "cap_jueus.svg",
+        "imatgeGran": "CAP_IV.svg"
+    }
+]

@@ -61,7 +61,7 @@ export default function Button({ children, onClick, color = 'primary', version =
         <Text_Type variant="h3">{children}</Text_Type>
       ) : version === 2 ? (
        <div style={{display:'flex', flexDirection: 'row', gap: "12px", alignItems: "center", justifyContent: "center"}}>
-       <img src={`${icon}`}></img>
+       {icon && <img src={icon} alt="" />}
         <Text_Type variant="t2">{children}</Text_Type>
        </div>
         

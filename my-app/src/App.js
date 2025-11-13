@@ -4,8 +4,9 @@ import Home from './screens/home';
 import Main from './screens/main';
 import Enigma from './screens/enigma';
 import Map from './screens/map';
+import Detail from './screens/detail';
 import { NivellProvider } from './context/nivellContext';
-import { VideosProvider } from './context/videoContext';
+
 
 
 function AppContent(){
@@ -16,6 +17,7 @@ function AppContent(){
       <Route path="main" element={<Main />} />
        <Route path="enigma" element={<Enigma />} />
         <Route path="map" element={<Map />} />
+        <Route path="detail" element={<Detail />} />
     </Routes>
     
    
@@ -27,11 +29,11 @@ function App() {
     <div className='app'>
       <div className='responsive-box'>
 <Router>
-<VideosProvider>
+
 <NivellProvider>
 <AppContent />
 </NivellProvider>
-</VideosProvider>
+
 </Router>
 
     </div>

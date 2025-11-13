@@ -2,79 +2,72 @@ import { Col, Grid } from "./grid/grid";
 import Text_Type from "./text_type";
 import Video_Card from "./video_card";
 import { useNivell } from "../context/nivellContext";
-import { useMemo } from "react";
 import { useComprovaUbicacio } from "../hooks/useComprovaUbicacio";
-import videosData from "../data/videos.json";
 
 export default function Videos_Screen() {
-const { videos } = useNivell();
-const { comprovaUbicacio } = useComprovaUbicacio();
+  const { videos, getEstatVideo, canviaVideoActive, canviaVideoWatch } = useNivell();
+  const { comprovaUbicacio } = useComprovaUbicacio();
 
-// Fallback a JSON si el context encara no està carregat
-const videosTots = useMemo(
-() => (Array.isArray(videos) && videos.length ? videos : videosData),
-[videos]
-);
+  return (
+    <div
+      style={{
+        minHeight: "100%",
+        height: "fit-content",
+        background: "var(--color-blue800)",
+        color: "var(--color-white)",
+        paddingTop: "24px",
+        paddingBottom: "100px",
+      }}
+    >
+      <Grid>
+        <Col span={8}>
+          <Text_Type variant="h2">VÍDEOS</Text_Type>
 
-const getEstate = (v) => {
-const locUnlocked =
-v.ubicacioDesbloquejada ??
-v["ubicacióDesbloquejada"] ??
-v["ubicaci\u00F3Desbloquejada"]; // maneja accents/encoding
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            {videos.map((video) => {
+              // 🔹 Obtenim l’estat real des del context
+              const estat = getEstatVideo(video.idVideo);
+               console.log("VIDEO:", video.idVideo, "ESTAT:", estat, "OBJ:", video);
 
-if (!v.debloquejat) return "locked";
-return locUnlocked ? "watch" : "active";
-};
+              return (
+                <div key={video.idVideo}>
+                  <Video_Card
+                    estate={estat} // ara sí: el valor ("lock" | "active" | "watch")
+                    id={video.idVideo}
+                    nom={video.titol}
+                    imatge={video.imatgeCaratula}
+                    url={video.url}
+                  />
 
-const isLocUnlocked = (v) =>
-v.ubicacioDesbloquejada ??
-v["ubicacióDesbloquejada"] ??
-v["ubicaci\u00F3Desbloquejada"];
+                  {/* 🔸 Mostrem accions segons l'estat 
+                  {estat === "lock" && (
+                    <button onClick={() => canviaVideoActive(video.idVideo)}>
+                      Activar
+                    </button>
+                  )}
 
-return (
-<div
-style={{
-minHeight: "100%",
-height: "fit-content",
-background: "var(--color-blue800)",
-color: "var(--color-white)",
-paddingTop: "24px",
-paddingBottom: "100px",
-}}
->
-<Grid>
-<Col span={8}>
-<Text_Type variant="h2">VÍDEOS</Text_Type>
-<div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-{videosTots.map((video) => {
-const estate = getEstate(video);
-const locUnlocked = isLocUnlocked(video);
+                  {estat === "active" && (
+                    <button onClick={() => comprovaUbicacio(video)}>
+                      Comprova ubicació
+                    </button>
+                  )}
 
-          return (
-            <div key={video.idVideo}>
-              <Video_Card
-                estate={estate}
-                id={video.idVideo}
-                nom={video.titol}
-                imatge={video.imatgeCaratula}
-                url={video.url}
-              />
-
-              {!locUnlocked ? (
-                <button onClick={() => comprovaUbicacio(video)}>
-                  Comprova ubicació
-                </button>
-              ) : (
-                <a href={video.url} target="_blank" rel="noopener noreferrer">
-                  Veure vídeo
-                </a>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </Col>
-  </Grid>
-</div>
-);
+                  {estat === "watch" && (
+                    <a
+                      href={video.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => canviaVideoWatch(video.idVideo)}
+                    >
+                      Veure vídeo
+                    </a>
+                  )}*/}
+                </div>
+              );
+            })}
+          </div>
+        </Col>
+      </Grid>
+    </div>
+  );
 }

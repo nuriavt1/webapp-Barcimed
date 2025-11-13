@@ -10,7 +10,7 @@ const Targetes_Modal = ({onClose, onContinue}) => {
     <Col span={8}>
     <Text_Type>HAS DESBLOQUEJAT NOVES TARGETES!</Text_Type>
     <Text_Type>Afegeix-les a la teva col·lecció!. Pots consultar-les quan vulguis a la Biblioteca.</Text_Type>
-    <Button onClick={onContinue}>RECOLLIR</Button>
+    <Button onClick={onClose}>RECOLLIR</Button>
     </Col>
 </Grid>
         </div>

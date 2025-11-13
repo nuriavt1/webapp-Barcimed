@@ -6,11 +6,11 @@ export default function Targeta({
   nom,
   onClick,
   className = "",
-  estado = "card",
+  estado = "false",
 }) {
   const renderTargeta = () => {
     switch (estado) {
-      case "card":
+      case "true":
         return (
           <div
             className={`${styles.targeta} ${className}`}
@@ -28,7 +28,7 @@ export default function Targeta({
           </div>
         );
 
-      case "lock":
+      case "false":
         return (
           <div
             style={{

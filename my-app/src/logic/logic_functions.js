@@ -1,3 +1,6 @@
+
+//FUNCIONS POGRÉS
+
 //Llegeix progres actual del usuari. Mira su existeix un objecte progress al local storage i si no crea un estat inicial.
 export function getProgress() {
     return JSON.parse(localStorage.getItem("progress")) || {
@@ -19,6 +22,8 @@ progress.nivellActual += 1;
 saveProgress(progress);
 return progress.nivellActual;
 }
+
+//FUNCIONS TARGETES
 
 //Desbloqueja una targeta
 export function desbloquejarTargeta(idTargeta) {

@@ -6,7 +6,7 @@ export default function Video_Card({ estate = "watch", id, nom, imatge, url }) {
   const navigate = useNavigate();
   const video_state = () => {
     switch (estate) {
-      case "locked":
+      case "lock":
         return (
           <div className={styles.container_locked}>
             <img src="/imatges_capitols/lock.svg" alt="Candado" />

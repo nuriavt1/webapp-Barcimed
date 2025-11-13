@@ -1,6 +1,6 @@
 [
     {
-        "idVideo": 1,
+        "idVideo": 0,
         "titol": "Introducció",
         "nivell": null,
         "localització": "",
@@ -16,10 +16,11 @@
             1,
             11,
             18
-        ]
+        ],
+        "estat": "watch"
     },
     {
-        "idVideo": 2,
+        "idVideo": 1,
         "titol": "El cavaller",
         "nivell": 2,
         "localització": "Plaça del Rei",
@@ -34,10 +35,11 @@
         "targetesDesbloquejades": [
             2,
             21
-        ]
+        ],
+        "estat": "lock"
     },
     {
-        "idVideo": 3,
+        "idVideo": 2,
         "titol": "La monja",
         "nivell": 3,
         "localització": "Catedral de bacelona",
@@ -54,10 +56,11 @@
             5,
             6,
             22
-        ]
+        ],
+        "estat": "lock"
     },
     {
-        "idVideo": 4,
+        "idVideo": 3,
         "titol": "El comerciant",
         "nivell": 4,
         "localització": "Plaça de Santa Maria",
@@ -73,10 +76,11 @@
             8,
             9,
             14
-        ]
+        ],
+        "estat": "lock"
     },
     {
-        "idVideo": 5,
+        "idVideo": 4,
         "titol": "Els jueus",
         "nivell": 5,
         "localització": "MUHBA El Call",
@@ -90,6 +94,7 @@
         "imatgeCaratula": "cap5.png",
         "targetesDesbloquejades": [
             25, 10, 12
-        ]
+        ],
+        "estat": "lock"
     }
 ]
