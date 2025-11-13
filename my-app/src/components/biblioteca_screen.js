@@ -45,27 +45,27 @@ export default function Biblioteca_Screen() {
               justifyContent: "center",
             }}
           >
-{targetes.map((t) => {
-console.log("TARGETA:", t.id, "DESBLOQUEJAT:", t.desbloquejat, "OBJ:", t);
-return (
-<Targeta
-key={t.id}
-estado={t.desbloquejat ? "true" : "false"}
-imatge={t.imatge}
-onClick={() =>
-t.desbloquejat &&
-navigate("/detail", {
-state: {
-id: t.id,
-titol: t.titol,
-descripcio: t.descripcio,
-imatge: t.imatge,
-},
-})
-}
-/>
-);
-})}
+            {targetes.map((t) => {
+              console.log("TARGETA:", t.id, "DESBLOQUEJAT:", t.desbloquejat, "OBJ:", t);
+              return (
+                <Targeta
+                  key={t.id}
+                  estado={t.desbloquejat ? "true" : "false"}
+                  imatge={t.imatge}
+                  onClick={() =>
+                    t.desbloquejat &&
+                    navigate("/detail", {
+                      state: {
+                        id: t.id,
+                        titol: t.nom,
+                        descripcio: t.contingut,
+                        imatge: t.imatgedetall,
+                      },
+                    })
+                  }
+                />
+              );
+            })}
 
           </div>
         </Col>
